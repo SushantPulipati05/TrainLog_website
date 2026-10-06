@@ -1,0 +1,176 @@
+.section {
+  padding: 96px var(--inset) 80px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 0.95;
+}
+
+.note {
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-sub);
+}
+
+.note :global(.accent) {
+  font-weight: 600;
+}
+
+.steps {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail,
+.railFill {
+  position: absolute;
+  left: 19px;
+  top: 34px;
+  bottom: 48px;
+  width: 2px;
+}
+
+.rail {
+  background: var(--empty);
+}
+
+.railFill {
+  background: var(--accent);
+  transform-origin: top;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 200px;
+  column-gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+}
+
+.dot {
+  position: absolute;
+  left: 12px;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 2px solid var(--bg);
+}
+
+.stepCopy {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepTitle {
+  font-size: clamp(28px, 3.4vw, 40px);
+}
+
+.stepBody {
+  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-sub);
+}
+
+.stepStat {
+  text-align: right;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+  padding: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.day1 {
+  flex: none;
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.ctaCopy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ctaTitle {
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 0.95;
+}
+
+.ctaSub {
+  font-size: 15px;
+  color: var(--text-sub);
+}
+
+.ctaBtn {
+  flex: none;
+  height: 64px;
+  padding: 0 32px;
+  font-size: 21px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px var(--inset) 56px;
+  }
+
+  .step {
+    grid-template-columns: 44px minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .stepStat {
+    grid-column: 2;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .day1 {
+    width: 96px;
+    height: 96px;
+  }
+}

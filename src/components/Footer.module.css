@@ -1,0 +1,30 @@
+.footer {
+  border-top: 1px solid var(--line);
+}
+
+.inner {
+  padding: 28px var(--inset) 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+}
+
+.left {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  color: var(--text-sub);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--text);
+}

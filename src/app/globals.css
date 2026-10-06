@@ -1,0 +1,162 @@
+:root {
+  --bg: #0b0b0d;
+  --card: #111114;
+  --empty: #1c1c20;
+  --line: #2a2a2e;
+  --line-strong: #3a3a40;
+  --text: #f5f5f7;
+  --text-sub: #b4b4ba;
+  --text-muted: #8e8e95;
+  --accent: #ff6a3d;
+  --accent-hover: #ff8a63;
+  --accent-soft: rgba(255, 106, 61, 0.12);
+
+  --gutter: 48px;
+  --max: 1280px;
+  --radius: 6px;
+  /* Left/right padding that lines content up with a centred --max column. */
+  --inset: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+
+  color-scheme: dark;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Condensed display type, used for every big headline. */
+.display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-stretch: 68%;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.display-md {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-stretch: 75%;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Small tracked mono labels. */
+.label {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.mark {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 58px;
+  padding: 0 28px;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-display), sans-serif;
+  font-stretch: 85%;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  color: var(--bg);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  height: 58px;
+  padding: 0 24px;
+  border-radius: 4px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}

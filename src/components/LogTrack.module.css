@@ -1,0 +1,233 @@
+/* Desktop: a tall section whose inner "pin" sticks while the track slides sideways. */
+.section {
+  /* --sets is set inline from LOG_SETS.length: one screen of scrolling per set. */
+  height: calc(var(--sets) * 100vh);
+  scroll-margin-top: 0;
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hud {
+  flex: none;
+  height: 88px;
+  padding: 0 var(--inset);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hudTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.hudTitle h2 {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.segments {
+  display: flex;
+  gap: 6px;
+}
+
+.segment {
+  width: 56px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--empty);
+  overflow: hidden;
+}
+
+.segment i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.odometer {
+  display: inline-block;
+  height: 1.15em;
+  overflow: hidden;
+  font-family: var(--font-display), sans-serif;
+  font-stretch: 68%;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.odometerStrip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.track {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  width: calc(var(--sets) * 100%);
+}
+
+.panel {
+  flex: none;
+  width: calc(100% / var(--sets));
+  padding: clamp(16px, 4vh, 40px) var(--inset);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+  column-gap: 72px;
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.4vh, 22px);
+  min-width: 0;
+}
+
+.setNo {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.title {
+  font-size: clamp(56px, min(8.6vw, 13vh), 116px);
+}
+
+.body {
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-sub);
+}
+
+.stat {
+  align-self: flex-start;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-strong);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.statHot {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.visual {
+  height: min(440px, calc(100vh - 250px));
+  min-height: 340px;
+}
+
+.stripWrap {
+  flex: none;
+  height: 64px;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.strip {
+  display: flex;
+  gap: 6px;
+  padding-left: var(--inset);
+}
+
+.strip span {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+/* Phones, tablets and reduced motion: plain vertical list, no pinning. */
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .section {
+    height: auto;
+  }
+
+  .pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .segments,
+  .counter,
+  .stripWrap {
+    display: none;
+  }
+
+  .track {
+    flex-direction: column;
+    width: auto;
+    transform: none !important;
+  }
+
+  .panel {
+    width: auto;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+    padding: 48px var(--inset);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel:last-child {
+    border-bottom: none;
+  }
+
+  .title {
+    font-size: clamp(48px, 14vw, 84px);
+  }
+
+  .body {
+    font-size: 15px;
+  }
+
+  .visual {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .hud {
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .hudTitle {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hudTitle h2 {
+    font-size: 56px;
+  }
+}
