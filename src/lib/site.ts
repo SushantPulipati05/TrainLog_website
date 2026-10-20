@@ -5,6 +5,13 @@
 
 export const SITE_URL = "https://trainlog.sushnt.dev";
 export const PORTFOLIO_URL = "https://sushnt.dev";
+export const AUTHOR = "Sushant Pulipati";
+/** Other places the author is on the web - tells search engines and AI it's the same person. */
+export const AUTHOR_LINKS = ["https://sushnt.dev", "https://github.com/SushantPulipati05", "https://x.com/sushantpulipat"];
+
+/** The one-paragraph description used for search results, link previews and structured data. */
+export const APP_DESCRIPTION =
+  "TrainLog is a free workout log app for Android. Log sets, reps and weight, follow your push/pull/legs split with an Up next that knows what's recovered, see every muscle you trained on a body map, chart every lift and PR, and keep your weekly streak.";
 
 /** Put the APK at public/trainlog.apk and it is served from this path. */
 export const APK_URL = "/trainlog.apk";
@@ -101,5 +108,41 @@ export const INSTALL_STEPS = [
     title: "Sign in and train",
     body: "Open TrainLog, sign in with Google or email, and set up your profile in under a minute.",
     stat: "< 1 MIN",
+  },
+];
+
+/** Questions shown in the FAQ section - and given to search engines and AI as FAQ structured data. */
+export const FAQ: { q: string; a: string }[] = [
+  {
+    q: "What is TrainLog?",
+    a: "TrainLog is a workout log app for Android. You log your sets, reps and weight, and it charts every lift, marks your personal records, tracks your weekly training target and shows which muscles each workout trained on a body map.",
+  },
+  {
+    q: "Is TrainLog free?",
+    a: "Yes. TrainLog is free to download and use.",
+  },
+  {
+    q: "Is TrainLog on the Google Play Store?",
+    a: `Not yet. TrainLog installs straight from this site as an APK file and needs ${MIN_ANDROID}. Android asks you to allow the install once, which is expected for apps from outside the Play Store.`,
+  },
+  {
+    q: "How does TrainLog decide what to train next?",
+    a: "Up next looks at the muscles your recent workouts actually trained, not their names. Muscles trained hard in the last two days count as recovering, and it picks the split day (for example push, pull or legs) that has rested the longest - then shows you why.",
+  },
+  {
+    q: "Can I see which muscles I trained?",
+    a: "Yes. Every workout is shown on a front and back body map split into 32 muscle parts, such as upper chest, side delts and the long head of the triceps. Each exercise lights up the part it works, so you can see what a session missed. There is a male and a female figure.",
+  },
+  {
+    q: "Does TrainLog track progress and personal records?",
+    a: "Every exercise gets its own chart of your heaviest set, estimated one-rep max or total volume, from one week to a year, with personal records marked. The Progress tab ranks your lifts by how much they have grown over three months.",
+  },
+  {
+    q: "Is there an iPhone version?",
+    a: "Not yet - TrainLog is Android only for now.",
+  },
+  {
+    q: "How do I sign in?",
+    a: "With your Google account or an email and password. Your workouts are stored in your account, so they are there on a new phone too.",
   },
 ];

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { HEAT_COLORS, heatLevels } from "@/lib/heatmap";
 import { useWeekLabel } from "@/lib/hooks";
@@ -21,9 +22,35 @@ export default function Hero() {
   const opacity = useTransform(covered, [0, 1], [1, 0.35]);
   const blur = useTransform(covered, [0, 1], ["blur(0px)", "blur(2px)"]);
 
+  // The grid sits dimmed; a soft spotlight follows the mouse and brings the
+  // squares under it back to full colour. Set straight on the element (no
+  // re-render per mouse move). Touch screens just see the calm, dim grid.
+  const litRef = useRef<HTMLDivElement>(null);
+  const moveLight = (e: React.PointerEvent<HTMLElement>) => {
+    if (e.pointerType !== "mouse" || !litRef.current) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    litRef.current.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    litRef.current.style.setProperty("--my", `${e.clientY - r.top}px`);
+    litRef.current.dataset.on = "true";
+  };
+  const hideLight = () => {
+    if (litRef.current) litRef.current.dataset.on = "false";
+  };
+
   return (
-    <motion.section id="top" className={styles.hero} style={{ scale, opacity, filter: blur }}>
-      <div className={styles.heat} aria-hidden="true">
+    <motion.section
+      id="top"
+      className={styles.hero}
+      style={{ scale, opacity, filter: blur }}
+      onPointerMove={moveLight}
+      onPointerLeave={hideLight}
+    >
+      <div className={`${styles.heat} ${styles.heatDim}`} aria-hidden="true">
+        {CELLS.map((level, i) => (
+          <span key={i} style={{ background: HEAT_COLORS[level] }} />
+        ))}
+      </div>
+      <div ref={litRef} className={`${styles.heat} ${styles.heatLit}`} data-on="false" aria-hidden="true">
         {CELLS.map((level, i) => (
           <span key={i} style={{ background: HEAT_COLORS[level] }} />
         ))}

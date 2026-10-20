@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { SITE_URL } from "@/lib/site";
+import { APP_DESCRIPTION, AUTHOR, PORTFOLIO_URL, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 // Fonts are self-hosted (src/app/fonts, both SIL Open Font License) so builds never depend on Google Fonts.
@@ -21,24 +21,44 @@ const plexMono = localFont({
   variable: "--font-mono",
 });
 
-const description =
-  "TrainLog is a free workout logger for Android. Log your sets, chart every lift, and watch the grid fill in.";
+const title = "TrainLog — Free workout log app for Android";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "TrainLog — Workout log for Android",
-  description,
+  title: {
+    default: title,
+    template: "%s · TrainLog",
+  },
+  description: APP_DESCRIPTION,
+  applicationName: "TrainLog",
+  authors: [{ name: AUTHOR, url: PORTFOLIO_URL }],
+  creator: AUTHOR,
+  category: "health & fitness",
+  keywords: [
+    "workout log",
+    "workout tracker",
+    "gym log app",
+    "Android workout app",
+    "push pull legs",
+    "progressive overload",
+    "muscle map",
+    "PR tracker",
+  ],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   openGraph: {
     title: "TrainLog — Every square is a day you showed up.",
-    description,
+    description: APP_DESCRIPTION,
     url: SITE_URL,
     siteName: "TrainLog",
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TrainLog — Workout log for Android",
-    description,
+    title,
+    description: APP_DESCRIPTION,
+    creator: "@sushantpulipat",
   },
 };
 

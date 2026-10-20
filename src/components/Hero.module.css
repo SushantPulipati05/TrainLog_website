@@ -24,6 +24,34 @@
   border-radius: 4px;
 }
 
+/* The everyday grid: dimmed and desaturated so it doesn't glare. */
+.heatDim {
+  opacity: 0.32;
+  filter: saturate(0.7);
+}
+
+/* The same grid at full colour, only visible in a soft circle around the
+   mouse (see Hero.tsx). Fades in and out as the mouse enters or leaves. */
+.heatLit {
+  --mx: -999px;
+  --my: -999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  -webkit-mask-image: radial-gradient(circle 220px at var(--mx) var(--my), #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+  mask-image: radial-gradient(circle 220px at var(--mx) var(--my), #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+}
+
+.heatLit[data-on="true"] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heatLit {
+    transition: none;
+  }
+}
+
 .header {
   position: relative;
   background: var(--bg);
