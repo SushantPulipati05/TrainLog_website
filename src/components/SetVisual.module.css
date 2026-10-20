@@ -150,38 +150,6 @@
   transform-origin: left;
 }
 
-/* Saved */
-.timer {
-  font-size: clamp(72px, 12vh, 110px);
-  text-transform: none;
-}
-
-.bottom {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.statusOff,
-.statusOn {
-  padding: 14px 16px;
-  border-radius: 4px;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.statusOff {
-  border: 1px solid var(--line);
-  color: var(--text-muted);
-}
-
-.statusOn {
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
-}
-
 @media (max-width: 900px) {
   .box {
     padding: 20px;
@@ -202,4 +170,313 @@
     flex: none;
   }
 
+}
+
+/* Streak: missed planned days and the legend */
+.missed {
+  background: transparent !important;
+  box-shadow: 0 0 0 1.5px rgba(255, 106, 61, 0.6) inset;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend i {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.legend .label + i.missed {
+  margin-left: 10px;
+}
+
+/* Body figure */
+.figure {
+  flex: none;
+  display: block;
+}
+
+/* Up next */
+.upRow {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.upCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.upDay {
+  font-size: clamp(44px, 7vh, 64px);
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.reason {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 15px;
+}
+
+.reason b {
+  font-weight: 600;
+  min-width: 92px;
+}
+
+.reason span {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.reasonOff b {
+  color: var(--text-muted);
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.wd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.wdBox {
+  width: 100%;
+  height: 34px;
+  border-radius: 4px;
+  background: var(--empty);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-sub);
+}
+
+.wdDone {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.wdRest {
+  background: transparent;
+  box-shadow: 0 0 0 1px var(--line) inset;
+  color: var(--text-muted);
+}
+
+.wdToday {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.wdToday .wdBox {
+  box-shadow: 0 0 0 1.5px var(--text) inset;
+}
+
+/* Muscles */
+.musclesRow {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.exList {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.exRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.exRow b {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.exMissed {
+  border-bottom: none;
+}
+
+.exMissed b {
+  color: var(--text-muted);
+}
+
+/* Insights */
+.insight {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #151518;
+}
+
+.insightIcon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--empty);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insightText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.insightText b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.insightText span {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.insightX {
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Watch yourself grow */
+.lift {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.lift:last-child {
+  border-bottom: none;
+}
+
+.liftName {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.liftName b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.liftName span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.spark {
+  flex: none;
+  overflow: visible;
+}
+
+.liftGain {
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.liftGain b {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.liftBar {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--empty);
+  overflow: hidden;
+}
+
+.liftBar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+@media (max-width: 900px) {
+  .spark {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .upRow,
+  .musclesRow {
+    gap: 14px;
+  }
+
+  .upDay {
+    font-size: 40px;
+  }
+
+  .reason {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .musclesRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .exList {
+    flex-basis: 100%;
+  }
 }

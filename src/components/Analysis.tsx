@@ -75,12 +75,13 @@ function AnalysisInner({ pinned }: { pinned: boolean }) {
               Watch the line go <span className="accent">up.</span>
             </h3>
             <p className={styles.body}>
-              Every exercise gets its own chart. Switch between heaviest set and total volume, zoom from a
-              week to a year, and see every PR marked on the way.
+              Every exercise gets its own chart. Switch between heaviest set, estimated 1RM and total
+              volume, zoom from a week to a year, and see every PR marked on the way.
             </p>
             <div className={styles.chips} aria-hidden="true">
               <span className={styles.chipOn}>HEAVIEST SET</span>
-              <span className={styles.chip}>TOTAL VOLUME</span>
+              <span className={styles.chip}>EST. 1RM</span>
+              <span className={styles.chip}>VOLUME</span>
             </div>
             <div className={styles.chips} aria-hidden="true">
               <span className={styles.chip}>1W</span>
