@@ -6,7 +6,7 @@
 
 - Logging: add exercises, log weight and reps for each set; every set is time-stamped so rest between sets is visible. Start from an empty workout or a saved template.
 - Up next: reads which muscles recent workouts actually trained (not their names), treats muscles trained hard in the last two days as recovering, and suggests the split day (for example push, pull or legs) that has rested longest - with the reason shown. It learns the order you really train your split in.
-- Body map: a front and back figure split into 32 muscle parts (upper, middle and lower chest; front, side and rear delts; the three triceps heads; and so on). Each exercise lights up the part it works. Male and female figures.
+- Body map: a front and back figure split into 33 muscle parts (upper, middle and lower chest; front, side and rear delts; the three triceps heads; and so on). Each exercise lights up the part it works. Male and female figures.
 - Charts and PRs: every exercise has a chart of heaviest set, estimated one-rep max or total volume, from one week to a year, with personal records marked.
 - Progress: lifts ranked by how much they grew over three months; recent weight PRs and rep PRs.
 - Insights: small wins, lifts not done lately, and a form check-in when the weight keeps rising while reps fall.

@@ -49,7 +49,7 @@ export const LOG_SETS: LogSet[] = [
     n: "03",
     title: "See every muscle.",
     body: "Upper chest, side delts, the long head of your triceps. Each exercise lights up the part it works, so you can see what a session missed.",
-    stat: "32 MUSCLE PARTS",
+    stat: "33 MUSCLE PARTS",
     visual: "muscles",
   },
   {
@@ -131,7 +131,7 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Can I see which muscles I trained?",
-    a: "Yes. Every workout is shown on a front and back body map split into 32 muscle parts, such as upper chest, side delts and the long head of the triceps. Each exercise lights up the part it works, so you can see what a session missed. There is a male and a female figure.",
+    a: "Yes. Every workout is shown on a front and back body map split into 33 muscle parts, such as upper chest, side delts and the long head of the triceps. Each exercise lights up the part it works, so you can see what a session missed. There is a male and a female figure.",
   },
   {
     q: "Does TrainLog track progress and personal records?",

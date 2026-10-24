@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import { HEAT_COLORS, seeded } from "@/lib/heatmap";
-import { BACK, FRONT, NEUTRAL, type Part } from "@/lib/body";
+import { BACK, BACK_SILHOUETTE, BODY_COLOR, BODY_H, BODY_W, FRONT, FRONT_SILHOUETTE, IDLE_COLOR, shade, type Part } from "@/lib/body";
 import type { LogSet } from "@/lib/site";
 import styles from "./SetVisual.module.css";
 
@@ -202,23 +202,27 @@ function Figure({
 }) {
   const shapes = view === "front" ? FRONT : BACK;
   return (
-    <svg viewBox="0 0 100 220" width={width} height={width * 2.2} aria-hidden="true" className={styles.figure}>
+    <svg
+      viewBox={`0 0 ${BODY_W} ${BODY_H}`}
+      width={width}
+      height={Math.round((width * BODY_H) / BODY_W)}
+      aria-hidden="true"
+      className={styles.figure}
+    >
+      <path d={view === "front" ? FRONT_SILHOUETTE : BACK_SILHOUETTE} fill={BODY_COLOR} />
       {shapes.map(([part, paths]) =>
         paths.map((d, k) => {
           const order = lit[part];
-          if (order === undefined || NEUTRAL.includes(part)) {
-            return <path key={part + k} d={d} fill="#2e2e33" stroke="var(--card)" strokeWidth="0.7" />;
+          if (order === undefined) {
+            return <path key={part + k} d={d} fill={IDLE_COLOR} />;
           }
-          const a = level[part] ?? 1;
           return (
             <motion.path
               key={part + k}
               d={d}
-              stroke="var(--card)"
-              strokeWidth="0.7"
               variants={{
-                hidden: { fill: "#2e2e33" },
-                shown: { fill: `rgba(255,106,61,${a})`, transition: { delay: 0.35 + order * 0.45, duration: 0.4 } },
+                hidden: { fill: IDLE_COLOR },
+                shown: { fill: shade(level[part] ?? 1), transition: { delay: 0.35 + order * 0.45, duration: 0.4 } },
               }}
             />
           );
@@ -250,7 +254,7 @@ function UpNext() {
     <>
       <Head title="Up next" note="Picked for you" hot />
       <div className={styles.upRow}>
-        <Figure view="front" lit={PUSH} width={118} />
+        <Figure view="front" lit={PUSH} width={94} />
         <div className={styles.upCopy}>
           <motion.span variants={rise} className={`display ${styles.upDay}`}>
             Push day
@@ -291,8 +295,8 @@ function Muscles() {
     <>
       <Head title="Push day" note="What it hit" />
       <div className={styles.musclesRow}>
-        <Figure view="front" lit={SESSION_LIT} width={104} />
-        <Figure view="back" lit={SESSION_LIT} width={104} />
+        <Figure view="front" lit={SESSION_LIT} width={96} />
+        <Figure view="back" lit={SESSION_LIT} width={96} />
         <div className={styles.exList}>
           {SESSION.map((e, i) => (
             <motion.div

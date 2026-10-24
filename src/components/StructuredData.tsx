@@ -37,7 +37,7 @@ export default function StructuredData() {
         featureList: [
           "Log sets, reps and weight with rest times",
           "Up next: picks your next split day from what has recovered",
-          "Body map with 32 muscle parts",
+          "Body map with 33 muscle parts",
           "Charts for every exercise with personal records",
           "Progress ranking of lifts by 3-month gain",
           "Insights: small wins, form check-ins, lifts not done lately",
