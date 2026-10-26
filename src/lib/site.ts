@@ -6,6 +6,14 @@
 export const SITE_URL = "https://trainlog.sushnt.dev";
 export const PORTFOLIO_URL = "https://sushnt.dev";
 export const AUTHOR = "Sushant Pulipati";
+/**
+ * The inbox for privacy and account questions, shown on /privacy and /terms.
+ * Leave empty to hide the email line (people can still use Send feedback
+ * in the app). Set this before the beta - people must be able to reach you.
+ */
+export const CONTACT_EMAIL = "";
+/** The date the privacy policy and terms last changed (shown on both pages). */
+export const LEGAL_UPDATED = "26 October 2026";
 /** Other places the author is on the web - tells search engines and AI it's the same person. */
 export const AUTHOR_LINKS = ["https://sushnt.dev", "https://github.com/SushantPulipati05", "https://x.com/sushantpulipat"];
 

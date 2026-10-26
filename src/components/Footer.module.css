@@ -28,3 +28,9 @@
 .link:hover {
   color: var(--text);
 }
+
+.links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

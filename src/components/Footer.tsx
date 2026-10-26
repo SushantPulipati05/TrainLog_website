@@ -9,9 +9,17 @@ export default function Footer() {
         <span className={styles.left}>
           <AppIcon size={28} />© {new Date().getFullYear()} SUSHANT PULIPATI · PUNE
         </span>
-        <a href={PORTFOLIO_URL} className={styles.link}>
-          SUSHNT.DEV ↗
-        </a>
+        <span className={styles.links}>
+          <a href="/privacy" className={styles.link}>
+            PRIVACY
+          </a>
+          <a href="/terms" className={styles.link}>
+            TERMS
+          </a>
+          <a href={PORTFOLIO_URL} className={styles.link}>
+            SUSHNT.DEV ↗
+          </a>
+        </span>
       </div>
     </footer>
   );
